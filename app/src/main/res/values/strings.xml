@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Little Lemon</string>
-    <string name="little_lemon">Little Lemon</string>
+    <string name="title">Little Lemon</string>
     <string name="order">Order</string>
+
+    <string name="chicago">Chicago</string>
+    <string name="descriptionone">We are a family owned mediterranean restaurant</string>
 
 </resources>
