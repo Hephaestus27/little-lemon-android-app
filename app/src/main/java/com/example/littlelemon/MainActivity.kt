@@ -5,11 +5,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -19,6 +24,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -31,33 +37,73 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Column(modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
+            Column(modifier = Modifier
+                .fillMaxWidth()
+                .background(Color(0XFF495E57))
+
+                ,
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.Start
                 ) {
+
                 Text(
                     text="Little Lemon", fontSize = 32.sp,
-                    color = Color(0xFFF4CE14)
+                    color = Color(0xFFF4CE14),
+                    modifier = Modifier.padding(start = 20.dp)
+
                 )
 
                 Text(
-                    text= stringResource(id = R.string.chicago), fontSize = 32.sp,
-                    color = Color(0xFFF4CE14)
+                    text= stringResource(id = R.string.chicago),
+                    fontSize = 24.sp,
+                    color = Color(0XFFFFFFFF),
+                    modifier = Modifier.padding(start = 20.dp)
+
+
                 )
-                Row {
-                    Button(onClick = { /*TODO*/ },
-                        border = BorderStroke(1.dp,color=Color.Red),
-                        shape = RoundedCornerShape(10.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = Color.Gray)
+
+                Row(
+                    Modifier.fillMaxWidth()
+                            .padding(20.dp),
+                   horizontalArrangement = Arrangement.Start,
+                ) {
+
+                    Text(
+                        text = stringResource(id = R.string.descriptionone),
+                        Modifier.width(200.dp),
+                        color = Color.White,
+                        fontSize = 25.sp
+                        )
+
+                    Image(painter = painterResource(id = R.drawable.restaurantlogo), contentDescription = "" ,
+                        Modifier.height(150.dp).clip(RoundedCornerShape(20.dp))
+                    )
+
+
+                }
+
+                Button(onClick = { /*TODO*/ },
+                    shape = RoundedCornerShape(10.dp),
+                    modifier = Modifier.padding(horizontal = 20.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF4CE14)),
+
 
                     ) {
-                        Text(text = stringResource(id = R.string.order))
-                    }
-                 }
+                    Text(text = stringResource(id = R.string.order
+                        )
+                    )
+                }
+
             }
 
 
         }
+
+
+
+
+
+
     }
 }
 
